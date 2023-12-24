@@ -1,4 +1,4 @@
-# Bad example communication
+# Bad example competition
 
 Amacım yarışma kurmaktı fakat zor olmaya başladı ve bende ara verdim. 
 
