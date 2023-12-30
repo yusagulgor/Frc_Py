@@ -2,11 +2,12 @@
 
 import pygame
 import sys
-from Drive import Drive
-from ..ylib import *
+from ..DriveControl import MyRobot , MotorControllerGroup
+
+
 
 class Simulator:
-    def __init__(self, drive_instance: Drive):
+    def __init__(self, drive_instance: MyRobot):
         self.simulated_robot = drive_instance
         self.robot_position = [400, 300]  # Küpün başlangıç konumu
         self.robot_size = [50, 50]  # Küpün boyutları

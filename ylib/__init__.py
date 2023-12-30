@@ -1,6 +1,5 @@
-from .Drive import Victor, SparkMax, DifferantielDrive, MotorControllerGroup, MotorType , PIDController
-from .System import MyRobot
-from .components import Navx , Encoder
+from .DriveControl import Victor, SparkMax, DifferantielDrive, MotorControllerGroup, MotorType , PIDController , Navx , Encoder , MyRobot 
+from .simu import Simulator
 
 class Error(Exception):
     def __init__(self, message="Bir hata oluştu"):
@@ -8,13 +7,18 @@ class Error(Exception):
         super().__init__(self.message)
 
 def load_robot(drive: DifferantielDrive):
+    # Check left and right motor groups
+    leftG = drive.mGroupLeft
+    rightG = drive.mGroupRight 
+
     # Check motor types
     if not drive.are_all_motor_types_same():
         raise ValueError("This code is not currently supported")
+    
+    if rightG.m_isInverted is False:
+        raise Error("This robot have a problem")
 
-    # Check left and right motor groups
-    leftG = drive.mGroupLeft
-    rightG = drive.mGroupRight    
+       
     if leftG.motor1.id == 1 and leftG.motor2.id == 2:
         if rightG.motor1.id == 3 and rightG.motor2.id == 4:
             return True
@@ -45,4 +49,4 @@ class {robot_name}(MyRobot):
         file.write(robot_code)
 
 
-__all__ = ["Victor", "SparkMax", "DifferantielDrive", "MotorControllerGroup", "MotorType","PIDController","Navx","Encoder","MyRobot","load_robot","startCoding"]
+__all__ = ["Victor", "SparkMax", "DifferantielDrive", "MotorControllerGroup", "MotorType","PIDController","Navx","Encoder","MyRobot","load_robot","startCoding","Simulator"]
