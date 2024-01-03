@@ -8,3 +8,4 @@ En son import hatası aldım ve düzeltmedim.
 
 ![projectFRC](https://github.com/yusagulgor/Frc_Py/assets/110815875/77b49d4a-ddcb-41af-8d1b-1308fc158280)
 
+Güncellemeyi bıraktım . 
