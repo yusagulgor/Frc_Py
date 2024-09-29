@@ -1,6 +1,5 @@
-from .MCdrive import Victor , SparkMax , MotorControllerGroup , DifferantielDrive , MyRobot
-from .typeMC import MotorType
+from .MCdrive import MotorType,Victor , SparkMax , MotorControllerGroup , DifferentialDrive , MyRobot
 from .automation import PIDController
 from .components import Navx , Encoder
 
-__all__ = ["Victor","SparkMax","DifferantielDrive","MotorControllerGroup","MotorType","PIDController","MyRobot","Navx","Encoder"]
+__all__ = ["Victor","SparkMax","DifferentialDrive","MotorControllerGroup","MotorType","PIDController","MyRobot","Navx","Encoder"]

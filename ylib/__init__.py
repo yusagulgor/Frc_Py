@@ -1,12 +1,12 @@
-from .DriveControl import Victor, SparkMax, DifferantielDrive, MotorControllerGroup, MotorType , PIDController , Navx , Encoder , MyRobot 
-from .simu import Simulator
+from .DriveControl import *
+from .simu import *
 
 class Error(Exception):
     def __init__(self, message="Bir hata oluştu"):
         self.message = message
         super().__init__(self.message)
 
-def load_robot(drive: DifferantielDrive):
+def load_robot(drive: DifferentialDrive):
     # Check left and right motor groups
     leftG = drive.mGroupLeft
     rightG = drive.mGroupRight 
@@ -38,8 +38,8 @@ class {robot_name}(MyRobot):
     def __init__(self) -> None:
         super().__init__()
 
-    # ZORUNLU ALAN !!! bu fonksiyon your DifferantielDrive return etmesi gerek 
-    def getDrive(self) -> DifferantielDrive:pass
+    # ZORUNLU ALAN !!! bu fonksiyon your DifferentialDrive return etmesi gerek 
+    def getDrive(self) -> DifferentialDrive:pass
 
     # ZORUNLU ALAN !!! robotun autonomous area
     def DriveAuto(self):return None
@@ -49,4 +49,4 @@ class {robot_name}(MyRobot):
         file.write(robot_code)
 
 
-__all__ = ["Victor", "SparkMax", "DifferantielDrive", "MotorControllerGroup", "MotorType","PIDController","Navx","Encoder","MyRobot","load_robot","startCoding","Simulator"]
+__all__ = ["Victor", "SparkMax", "DifferentialDrive", "MotorControllerGroup", "MotorType","PIDController","Navx","Encoder","MyRobot","load_robot","startCoding","Simulator"]

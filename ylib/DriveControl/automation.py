@@ -1,7 +1,7 @@
 from .components import Navx , Encoder
 
 class PIDController:
-    def __init__(self,encoder:Encoder=None,navx:Navx=None,kP:int=0,kI:int=0,kD:int=0) -> None:
+    def __init__(self,encoder:Encoder=None,navx:Navx=None,kP:float=0,kI:float=0,kD:float=0) -> None:
         self.kP = kP
         self.kI = kI
         self.kD = kD
