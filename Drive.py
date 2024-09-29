@@ -30,35 +30,33 @@ class Drive(MyRobot):
         return self.drive.arcadeDrive(PIDController=self.PIDController, xSpeed=-1, zRotation=0)
 
     def goXmeter(self, x_meters: float, speed: float):
-        self.encoder.reset()  # Encoder'ı sıfırla
-        target_position = x_meters * 10  # 1 metreyi 100 piksel olarak düşünelim
+        self.encoder.reset()  
+        target_position = x_meters * 10  
         current_position = 0
 
         while current_position < target_position:
-            current_position = self.encoder.get()  # Mevcut encoder pozisyonunu al
-            # Arcade drive ile robota hız ve dönüş komutları gönder
-            self.drive.arcadeDrive(xSpeed=speed, zRotation=0)
-            print(f"Current Position: {current_position}, Target: {target_position}")  # Kontrol için yazdır
+            current_position = self.encoder.get()
 
-        # Hedefe ulaşıldığında robotu durdur
+            self.drive.arcadeDrive(xSpeed=speed, zRotation=0)
+            # print(f"Current Position: {current_position}, Target: {target_position}")
+
         self.drive.arcadeDrive(xSpeed=0, zRotation=0)
         print("Target reached, stopping.")
 
     def turnXDegree(self, xSpeed: float, angle: float):
-        rotation_time = angle / 360  # 12 derece dönecek, bu oranı hesapla
-        duration = max(0.1, rotation_time)  # En az 0.1 saniye döndür
+        rotation_time = angle / 360  
+        duration = max(0.1, rotation_time)  
         start_time = time.time()
 
         # Dönüş işlemi
         while time.time() - start_time < duration:
-            self.drive.arcadeDrive(xSpeed=0, zRotation=xSpeed)  # Dönme işlemi
-            time.sleep(0.02)  # Küçük bir bekleme süresi
+            self.drive.arcadeDrive(xSpeed=0, zRotation=xSpeed)  
+            time.sleep(0.02)  
 
-        # Dönüş tamamlandığında robotu durdur
         self.drive.arcadeDrive(xSpeed=0, zRotation=0)
 
     def goZero(self):
         return self.drive.arcadeDrive()
 
     def DriveAuto(self):
-        return self.turnXDegree(1, 12)  # 1 birim hızda 12 derece döndür
+        return self.turnXDegree(1, 12) 
